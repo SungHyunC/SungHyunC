@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @SungHyunC
 - 👀 I’m interested in swift
-- 🌱 I’m currently learning swift
+- 🌱 I’m currently learning swift,python,C,C++
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
 
