@@ -12,7 +12,7 @@ My projects span machine learning pipelines, AI agent workflows, and practical w
 | --- | --- | --- |
 | [Engine RUL Prediction](https://github.com/SungHyunC/engine-rul-prediction) | Parallel HDF5 processing and CNN experiments on NASA N-CMAPSS simulated engine data, with recorded results and evaluation caveats. | Python, PyTorch, HDF5 |
 | [ETF Answer Agent](https://github.com/SungHyunC/etf-answer-agent) · [Live demo](https://sunghyunc.github.io/etf-answer-agent/) | A prototype question-answering workflow with retrieval, validation gates, and revision routing. | Python, LangGraph |
-| [Multi-Agent BEMS](https://github.com/SungHyunC/multi-agent-bems) | Capstone project (Excellence Award): a LangGraph supervisor routes operator questions to monitoring, analysis and report agents over live building-energy data, with rule-based alerts and fallbacks. | Python, LangGraph, FastAPI, Next.js |
+| [Multi-Agent BEMS](https://github.com/SungHyunC/multi-agent-bems) | Capstone project (Excellence Award): a LangGraph supervisor routes operator questions to monitoring, analysis and report agents over simulated building-energy data, with rule-based alerts and fallbacks. | Python, LangGraph, FastAPI, Next.js |
 | [BEMS Anomaly Operations Center](https://github.com/SungHyunC/BEMS-Anomaly-Operations-Center) | Building-energy sensor data recovery, rule-based diagnostics, and an operations dashboard. | Python, FastAPI, Streamlit |
 
 ## Team contributions
