@@ -103,6 +103,8 @@ const BRAND = {
   git: ['siGit', '#f03c2e', '#f03c2e'],
   langgraph: ['siLanggraph', '#1c7ed6', '#7fc8ff'],
   meta: ['siMeta', '#0467df', '#4a97f7'],
+  ray: ['siRay', '#028cf0', '#3aa5f5'],
+  unrealengine: ['siUnrealengine', '#0e1128', '#ffffff'],
 };
 
 // Simple Icons has no LinkedIn mark, so this one is drawn here: a rounded square with "in" cut out.
@@ -181,6 +183,10 @@ const CHIPS = {
   'sam-3-1': ['SAM 3.1', 'meta'],
   'muse-spark': ['Muse Spark', 'meta'],
   hdf5: ['HDF5', 'lucide:layers'],
+  jax: ['JAX', 'lucide:square-function'],
+  'ray-rllib': ['Ray RLlib', 'ray'],
+  jsbsim: ['JSBSim', 'lucide:plane'],
+  'unreal-engine': ['Unreal Engine 5', 'unrealengine'],
 };
 
 const BUTTONS = {
@@ -198,6 +204,7 @@ const LINE_ICONS = {
   role: ['briefcase', ACCENT],
   citizenship: ['badge-check', ACCENT],
   awards: ['award', ACCENT],
+  research: ['flask-conical', ACCENT],
   projects: ['rocket', ACCENT],
   team: ['users-round', ACCENT],
   tools: ['wrench', ACCENT],
@@ -222,7 +229,7 @@ const BANNER = {
   // Rows of logo tiles on the right, in the order they are drawn.
   tiles: [
     ['python', 'pytorch', 'react', 'swift'],
-    ['fastapi', 'langgraph', 'scikitlearn'],
+    ['fastapi', 'langgraph', 'unrealengine', 'ray', 'scikitlearn'],
     ['git', 'javascript', 'streamlit', 'nextjs'],
   ],
 };
@@ -239,7 +246,7 @@ function banner(theme) {
   // Logo tiles: rows centred on one vertical line, so the short row sits between the long ones.
   const TILE = 72;
   const GAP = 14;
-  const centreX = 1052;
+  const centreX = 1030;
   const top = (H - (BANNER.tiles.length * TILE + (BANNER.tiles.length - 1) * GAP)) / 2;
   const tiles = BANNER.tiles
     .map((row, r) => {
@@ -284,6 +291,83 @@ ${tiles}
 `;
 }
 
+// ---------------------------------------------------------------- F-16 thumbnail
+
+// The F-16 project's code and screenshots are not public, so its thumbnail is a schematic
+// drawn here: the agent (blue) closing on its opponent (red), with the cone in front of
+// the agent's nose that it has to bring the opponent into. It is framed like the thumbnails
+// scripts/make-thumbnail.py makes: 800 x 500, rounded corners, a hairline border, and
+// transparent rows above and below.
+function engagementSchematic() {
+  const W = 800;
+  const H = 500;
+  const PAD = 18;
+  const BLUE = '#58a6ff';
+  const RED = '#ff7b72';
+
+  const agent = { start: [90, 400], c1: [260, 450], c2: [430, 410], end: [515, 320] };
+  const target = { start: [125, 125], c1: [320, 60], c2: [590, 85], end: [650, 215] };
+  const curve = (t) => `M${t.start.join(' ')}C${t.c1.join(' ')} ${t.c2.join(' ')} ${t.end.join(' ')}`;
+  const heading = (t) => Math.atan2(t.end[1] - t.c2[1], t.end[0] - t.c2[0]);
+  const deg = (rad) => r2((rad * 180) / Math.PI);
+
+  // The cone: 14 degrees either side of the agent's nose, out to RANGE.
+  const RANGE = 215;
+  const HALF = (14 * Math.PI) / 180;
+  const nose = heading(agent);
+  const rim = (a) => `${r2(agent.end[0] + RANGE * Math.cos(a))} ${r2(agent.end[1] + RANGE * Math.sin(a))}`;
+  const cone = `M${agent.end.join(' ')}L${rim(nose - HALF)}A${RANGE} ${RANGE} 0 0 1 ${rim(nose + HALF)}Z`;
+
+  // A fighter seen from above, nose along +x.
+  const JET = 'M64 0C52-4 38-7 24-8L-14-40L-24-40L-26-9L-38-8L-50-23L-58-23L-55-6L-60 0L-55 6L-58 23L-50 23L-38 8L-26 9L-24 40L-14 40L24 8C38 7 52 4 64 0Z';
+  const jet = (t, colour) => `<path transform="translate(${t.end.join(' ')}) rotate(${deg(heading(t))}) scale(0.62)" fill="${colour}" stroke="#0b1323" stroke-width="3" stroke-linejoin="round" d="${JET}"/>`;
+  const trail = (t, id) => `<path d="${curve(t)}" fill="none" stroke="url(#${id})" stroke-width="2.6" stroke-linecap="round"/>
+<path d="${curve(t)}" fill="none" stroke="url(#${id})" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 39"/>`;
+  const fade = (id, t, colour) => `<linearGradient id="${id}" x1="${t.start[0]}" y1="0" x2="${t.end[0]}" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${colour}" stop-opacity="0"/><stop offset="0.55" stop-color="${colour}" stop-opacity="0.75"/><stop offset="1" stop-color="${colour}"/></linearGradient>`;
+
+  const title = outline('1V1 ENGAGEMENT (SCHEMATIC)', { font: 600, size: 19, x: 36, y: 56, tracking: 1.5 });
+  const agentLabel = outline('agent', { font: 500, size: 22, x: 62, y: 462 });
+  const targetX = 62 + agentLabel.width + 52;
+  const targetLabel = outline('opponent', { font: 500, size: 22, x: targetX, y: 462 });
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H + 2 * PAD}" viewBox="0 0 ${W} ${H + 2 * PAD}" role="img" aria-label="Schematic of a one-on-one air combat engagement">
+<title>Schematic of a one-on-one air combat engagement</title>
+<defs>
+<clipPath id="frame"><rect width="${W}" height="${H}" rx="22"/></clipPath>
+<linearGradient id="sky" x1="0" y1="0" x2="${W}" y2="${H}" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0b1323"/><stop offset="1" stop-color="#161f3d"/></linearGradient>
+<radialGradient id="glow" cx="${agent.end[0] + 40}" cy="${agent.end[1] - 40}" r="330" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2f6feb" stop-opacity="0.34"/><stop offset="1" stop-color="#2f6feb" stop-opacity="0"/></radialGradient>
+<radialGradient id="cone" cx="${agent.end[0]}" cy="${agent.end[1]}" r="${RANGE}" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${BLUE}" stop-opacity="0.5"/><stop offset="1" stop-color="${BLUE}" stop-opacity="0.06"/></radialGradient>
+<pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#fff" stroke-opacity="0.06"/></pattern>
+${fade('agentTrail', agent, BLUE)}
+${fade('targetTrail', target, RED)}
+</defs>
+<g transform="translate(0 ${PAD})">
+<g clip-path="url(#frame)">
+<rect width="${W}" height="${H}" fill="url(#sky)"/>
+<rect width="${W}" height="${H}" fill="url(#grid)"/>
+<rect width="${W}" height="${H}" fill="url(#glow)"/>
+<circle cx="${agent.end[0]}" cy="${agent.end[1]}" r="${RANGE / 2}" fill="none" stroke="#fff" stroke-opacity="0.1" stroke-dasharray="3 7"/>
+<circle cx="${agent.end[0]}" cy="${agent.end[1]}" r="${RANGE}" fill="none" stroke="#fff" stroke-opacity="0.1" stroke-dasharray="3 7"/>
+<path d="${cone}" fill="url(#cone)" stroke="${BLUE}" stroke-opacity="0.55" stroke-width="1.2" stroke-linejoin="round"/>
+${trail(target, 'targetTrail')}
+${trail(agent, 'agentTrail')}
+<path d="M${agent.end.join(' ')}L${target.end.join(' ')}" stroke="#fff" stroke-opacity="0.7" stroke-width="1.4" stroke-dasharray="5 6"/>
+<circle cx="${target.end[0]}" cy="${target.end[1]}" r="34" fill="none" stroke="#fff" stroke-opacity="0.85" stroke-width="1.6"/>
+<path d="M${target.end[0] - 46} ${target.end[1]}h-12M${target.end[0] + 46} ${target.end[1]}h12M${target.end[0]} ${target.end[1] - 46}v-12M${target.end[0]} ${target.end[1] + 46}v12" stroke="#fff" stroke-opacity="0.85" stroke-width="1.6" stroke-linecap="round"/>
+${jet(target, RED)}
+${jet(agent, BLUE)}
+<path fill="#fff" fill-opacity="0.6" d="${title.d}"/>
+<circle cx="44" cy="455" r="7" fill="${BLUE}"/>
+<path fill="#fff" fill-opacity="0.85" d="${agentLabel.d}"/>
+<circle cx="${r2(targetX - 18)}" cy="455" r="7" fill="${RED}"/>
+<path fill="#fff" fill-opacity="0.85" d="${targetLabel.d}"/>
+</g>
+<rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="21" fill="none" stroke="#808892" stroke-opacity="0.47" stroke-width="2"/>
+</g>
+</svg>
+`;
+}
+
 // ---------------------------------------------------------------- write
 
 function write(file, content) {
@@ -312,4 +396,6 @@ for (const [name, [icon, colors]] of Object.entries(LINE_ICONS)) {
   write(`icons/${name}.svg`, lineIcon(icon, colors));
   count += 1;
 }
+write('projects/f16-air-combat-agent.svg', engagementSchematic());
+count += 1;
 console.log(`Wrote ${count} files to ${path.relative(process.cwd(), OUT) || '.'}`);

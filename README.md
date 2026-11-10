@@ -68,6 +68,29 @@
   </tr>
 </table>
 
+## <img src="assets/icons/research.svg" width="24" height="24" align="absmiddle" alt=""> Research
+
+<table>
+  <tr>
+    <td>
+      <b>Undergraduate Research Assistant</b>, Korea University · Sep 2025 – Present<br>
+      Multi-agent reinforcement learning for air combat
+      <ul>
+        <li>Reimplemented JSBSim F-16/A-4 flight dynamics and an air combat environment in JAX, cutting per-policy training from an estimated 190 CPU hours to ~20 GPU hours; verified statistical equivalence to JSBSim in 5 stages.</li>
+        <li>Reproduced the main results of an IEEE ICA 2025 hierarchical MARL paper over 10 seeds (62 policies, 1.1M evaluation engagements), tracing remaining gaps to seed variance and undocumented ammo and altitude rules.</li>
+        <li>Extended an F-16 simulator to 2v2 combat with 7 RL setups, 131 automated tests, and Unreal Engine 5 rendering.</li>
+      </ul>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jax-dark.svg"><img src="assets/chips/jax-light.svg" height="26" alt="JAX"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jsbsim-dark.svg"><img src="assets/chips/jsbsim-light.svg" height="26" alt="JSBSim"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/unreal-engine-dark.svg"><img src="assets/chips/unreal-engine-light.svg" height="26" alt="Unreal Engine 5"></picture>
+        <br><sub>The code is private (lab research).</sub>
+      </p>
+    </td>
+  </tr>
+</table>
+
 ## <img src="assets/icons/projects.svg" width="24" height="24" align="absmiddle" alt=""> Selected projects
 
 <table>
@@ -85,6 +108,29 @@
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/mujoco-dark.svg"><img src="assets/chips/mujoco-light.svg" height="26" alt="MuJoCo"></picture>
       </p>
       <p><a href="https://github.com/SungHyunC/video2urdf">Repository</a> · <a href="https://sunghyunc.github.io/video2urdf/">Live demo</a> · <a href="https://youtu.be/aK_csSIU24c">Demo video</a></p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="40%">
+      <img src="assets/projects/f16-air-combat-agent.svg" width="100%" alt="Schematic of a one-on-one engagement: the agent's aircraft closing on its opponent, which sits inside the cone ahead of the agent's nose">
+    </td>
+    <td>
+      <h3>F-16 Air Combat AI Agent</h3>
+      <p>AI Pilot Top Gun Challenge · Summer 2026</p>
+      <ul>
+        <li>Trained a PPO dogfighting policy on a 6-DOF F-16 flight model and wrapped it in rule-based safety layers, logging zero crashes or dropped responses across thousands of local and dozens of live-server rounds.</li>
+        <li>Built a competition-rules simulator, unattended server orchestration, and 83- and 122-opponent evaluation pools; every release had to pass league, held-out, live-server, and bit-identical checks.</li>
+        <li>Traced aim overshoot in live-server logs (0.4 s on target vs. 1.0–1.4 s for a reference model), then added an arbitration layer that raised head-on score from 0.39 to 0.88 over 64 paired rounds.</li>
+      </ul>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/ray-rllib-dark.svg"><img src="assets/chips/ray-rllib-light.svg" height="26" alt="Ray RLlib"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jsbsim-dark.svg"><img src="assets/chips/jsbsim-light.svg" height="26" alt="JSBSim"></picture>
+        <br><sub>The code is private: the repository includes the competition's environment files.</sub>
+      </p>
     </td>
   </tr>
 </table>
@@ -176,8 +222,12 @@
 </p>
 <p>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/pytorch-dark.svg"><img src="assets/chips/pytorch-light.svg" height="26" alt="PyTorch"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jax-dark.svg"><img src="assets/chips/jax-light.svg" height="26" alt="JAX"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/ray-rllib-dark.svg"><img src="assets/chips/ray-rllib-light.svg" height="26" alt="Ray RLlib"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/scikit-learn-dark.svg"><img src="assets/chips/scikit-learn-light.svg" height="26" alt="scikit-learn"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jsbsim-dark.svg"><img src="assets/chips/jsbsim-light.svg" height="26" alt="JSBSim"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/mujoco-dark.svg"><img src="assets/chips/mujoco-light.svg" height="26" alt="MuJoCo"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/unreal-engine-dark.svg"><img src="assets/chips/unreal-engine-light.svg" height="26" alt="Unreal Engine 5"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/langgraph-dark.svg"><img src="assets/chips/langgraph-light.svg" height="26" alt="LangGraph"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/fastapi-dark.svg"><img src="assets/chips/fastapi-light.svg" height="26" alt="FastAPI"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/streamlit-dark.svg"><img src="assets/chips/streamlit-light.svg" height="26" alt="Streamlit"></picture>
