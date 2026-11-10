@@ -1,0 +1,15 @@
+{
+  "name": "profile-readme-assets",
+  "private": true,
+  "type": "module",
+  "description": "Builds the SVG chips, icons and banner used by README.md",
+  "scripts": {
+    "build": "node scripts/build-assets.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "lucide-static": "^1.71.0",
+    "opentype.js": "^2.0.0",
+    "simple-icons": "^16.37.0"
+  }
+}
