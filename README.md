@@ -21,12 +21,12 @@
 <table>
   <thead>
     <tr>
-      <td align="left" valign="top" width="50%">
+      <td align="left" valign="top">
         <img src="assets/icons/education.svg" width="18" height="18" align="absmiddle" alt=""> <sub>EDUCATION</sub><br>
         <b>Korea University, Sejong Campus</b><br>
         B.S. Computer Convergence Software
       </td>
-      <td align="left" valign="top" width="50%">
+      <td align="left" valign="top">
         <img src="assets/icons/graduating.svg" width="18" height="18" align="absmiddle" alt=""> <sub>GRADUATING</sub><br>
         <b>February 2027</b>
       </td>
@@ -56,12 +56,14 @@
     <td width="50%" valign="top">
       <img src="assets/icons/trophy.svg" width="30" height="30" alt=""><br>
       <b>5th Place, Indie Developer Track ($25,000)</b><br>
-      <a href="https://cerebralvalley.ai/e/meta-ai-developer-hackathon/hackathon/gallery/2050">Meta Global AI Developer Hackathon</a>, November 2026. Built <a href="https://github.com/SungHyunC/video2urdf">Video2URDF</a> solo; 5,367 projects were submitted.
+      <a href="https://cerebralvalley.ai/e/meta-ai-developer-hackathon/hackathon/gallery/2050">Meta Global AI Developer Hackathon</a>, November 2026; 5,367 projects were submitted.<br>
+      Project: <a href="https://github.com/SungHyunC/video2urdf">Video2URDF</a>, built solo.
     </td>
     <td width="50%" valign="top">
       <img src="assets/icons/medal.svg" width="30" height="30" alt=""><br>
       <b>Excellence Award</b><br>
-      Industry-Linked Capstone Design Competition, Korea University Sejong Campus, spring 2026, for the <a href="https://github.com/SungHyunC/multi-agent-bems">Multi-Agent BEMS</a> capstone project.
+      Industry-Linked Capstone Design Competition, Korea University Sejong Campus, spring 2026.<br>
+      Project: <a href="https://github.com/SungHyunC/multi-agent-bems">Multi-Agent BEMS</a>, a capstone design project.
     </td>
   </tr>
 </table>
@@ -82,7 +84,7 @@
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/muse-spark-dark.svg"><img src="assets/chips/muse-spark-light.svg" height="26" alt="Muse Spark"></picture>
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/mujoco-dark.svg"><img src="assets/chips/mujoco-light.svg" height="26" alt="MuJoCo"></picture>
       </p>
-      <p><a href="https://github.com/SungHyunC/video2urdf">Repository</a> · <a href="https://sunghyunc.github.io/video2urdf/">Live demo</a></p>
+      <p><a href="https://github.com/SungHyunC/video2urdf">Repository</a> · <a href="https://sunghyunc.github.io/video2urdf/">Live demo</a> · <a href="https://youtu.be/aK_csSIU24c">Demo video</a></p>
     </td>
   </tr>
 </table>
@@ -100,7 +102,7 @@
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/pytorch-dark.svg"><img src="assets/chips/pytorch-light.svg" height="26" alt="PyTorch"></picture>
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/hdf5-dark.svg"><img src="assets/chips/hdf5-light.svg" height="26" alt="HDF5"></picture>
       </p>
-      <p><a href="https://github.com/SungHyunC/engine-rul-prediction">Repository</a></p>
+      <p><a href="https://github.com/SungHyunC/engine-rul-prediction">Repository</a> · <a href="https://github.com/SungHyunC/engine-rul-prediction/blob/HEAD/output/report_en.pdf">Report (PDF)</a></p>
     </td>
   </tr>
 </table>
@@ -154,7 +156,7 @@
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/fastapi-dark.svg"><img src="assets/chips/fastapi-light.svg" height="26" alt="FastAPI"></picture>
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/streamlit-dark.svg"><img src="assets/chips/streamlit-light.svg" height="26" alt="Streamlit"></picture>
       </p>
-      <p><a href="https://github.com/SungHyunC/BEMS-Anomaly-Operations-Center">Repository</a></p>
+      <p><a href="https://github.com/SungHyunC/BEMS-Anomaly-Operations-Center">Repository</a> · <a href="https://youtu.be/Qljy0q05-nU">Video walkthrough</a></p>
     </td>
   </tr>
 </table>
