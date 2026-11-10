@@ -2,7 +2,7 @@
 
 The images in this folder are generated: the banner, chips, buttons and icons by
 [`scripts/build-assets.mjs`](../scripts/build-assets.mjs), and the project thumbnails by
-[`scripts/make-thumbnail.py`](../scripts/make-thumbnail.py).
+[`scripts/make-thumbnail.py`](../scripts/make-thumbnail.py) (the F-16 schematic comes from the build script).
 
 - **Brand marks** (Python, PyTorch, React and the others) come from [Simple Icons](https://simpleicons.org),
   released under CC0 1.0. The marks are trademarks of their owners and are used here only to name the
@@ -17,6 +17,7 @@ The images in this folder are generated: the banner, chips, buttons and icons by
 | Thumbnail | Source |
 | --- | --- |
 | `projects/video2urdf.webp` | Frame at 0:16 of `docs/models/laptop_lidar/replay.mp4` in [video2urdf](https://github.com/SungHyunC/video2urdf), `--crop 0,105,960,600` |
+| `projects/f16-air-combat-agent.svg` | A schematic drawn by `scripts/build-assets.mjs`; the project has no public screenshot |
 | `projects/engine-rul-prediction.webp` | Top two panels of `output/extended/cnn/test_engine_rul_curves.png` in [engine-rul-prediction](https://github.com/SungHyunC/engine-rul-prediction), on a white 1600 x 1000 canvas |
 | `projects/etf-answer-agent.webp` | The [browser demo](https://sunghyunc.github.io/etf-answer-agent/) answering a question about a fund's total expense ratio, in a 1040 x 650 window at 2x |
 | `projects/multi-agent-bems.webp` | `docs/dashboard.png` in [multi-agent-bems](https://github.com/SungHyunC/multi-agent-bems), `--crop 112,100,2400,1500` |
