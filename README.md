@@ -63,7 +63,7 @@
       <img src="assets/icons/medal.svg" width="30" height="30" alt=""><br>
       <b>Excellence Award</b><br>
       Industry-Linked Capstone Design Competition, Korea University Sejong Campus, spring 2026.<br>
-      Project: <a href="https://github.com/SungHyunC/multi-agent-bems">Multi-Agent BEMS</a>, a capstone design project.
+      Project: <a href="https://github.com/SungHyunC/multi-agent-bems">Multi-Agent BEMS</a>.
     </td>
   </tr>
 </table>
