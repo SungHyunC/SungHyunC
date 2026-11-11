@@ -138,6 +138,50 @@
 <table>
   <tr>
     <td width="40%">
+      <a href="https://github.com/SungHyunC/ma-bems-project"><img src="assets/projects/ma-bems.webp" width="100%" alt="The MA-BEMS dashboard: a 3D campus with live KPIs, the agent decision log and the six agents' status"></a>
+    </td>
+    <td>
+      <h3><a href="https://github.com/SungHyunC/ma-bems-project">MA-BEMS: Multi-Agent Building Energy Management</a></h3>
+      <p>Capstone project, fall 2026. Six agents (coordinator, HVAC, lighting, PV, ESS, EV charging) run a simulated campus side by side with a rule-based BMS on identical inputs.</p>
+      <ul>
+        <li>Cut energy cost by 16.7 ± 0.2% vs. the rule-based BMS and held peak demand under the 1,000 kW limit (0 vs. 1,996 minutes over) in simulation; ablations and nine stress scenarios, including one where the agents do worse, are reported.</li>
+        <li>Fine-tuned Qwen3-8B with QLoRA on simulator-generated data for the local AI assistant: answers passing a number check rose from 86.4% to 98.3%, and proposed actions that would change nothing fell from 121/228 to 3/209.</li>
+        <li>Deployed as a static dashboard on GitHub Pages, with an access-keyed LLM gateway behind a Cloudflare tunnel.</li>
+      </ul>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/javascript-dark.svg"><img src="assets/chips/javascript-light.svg" height="26" alt="JavaScript"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/threejs-dark.svg"><img src="assets/chips/threejs-light.svg" height="26" alt="Three.js"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/qlora-dark.svg"><img src="assets/chips/qlora-light.svg" height="26" alt="QLoRA"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/ollama-dark.svg"><img src="assets/chips/ollama-light.svg" height="26" alt="Ollama"></picture>
+      </p>
+      <p><a href="https://github.com/SungHyunC/ma-bems-project">Repository</a> · <a href="https://sunghyunc.github.io/ma-bems/">Live dashboard</a></p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="40%">
+      <a href="https://github.com/SungHyunC/multi-agent-bems"><img src="assets/projects/multi-agent-bems.webp" width="100%" alt="The Multi-Agent BEMS dashboard: energy KPIs, a power chart, and responses from the monitoring, analysis and report agents"></a>
+    </td>
+    <td>
+      <h3><a href="https://github.com/SungHyunC/multi-agent-bems">Multi-Agent BEMS (spring 2026)</a></h3>
+      <p>The spring 2026 capstone that preceded MA-BEMS (Excellence Award): a LangGraph supervisor routes operator questions to monitoring, analysis and report agents over simulated building-energy data, with rule-based alerts and fallbacks.</p>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/langgraph-dark.svg"><img src="assets/chips/langgraph-light.svg" height="26" alt="LangGraph"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/fastapi-dark.svg"><img src="assets/chips/fastapi-light.svg" height="26" alt="FastAPI"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/nextjs-dark.svg"><img src="assets/chips/nextjs-light.svg" height="26" alt="Next.js"></picture>
+      </p>
+      <p><a href="https://github.com/SungHyunC/multi-agent-bems">Repository</a></p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="40%">
       <a href="https://github.com/SungHyunC/engine-rul-prediction"><img src="assets/projects/engine-rul-prediction.webp" width="100%" alt="Observed and CNN-predicted remaining useful life over flight cycles for two test engines"></a>
     </td>
     <td>
@@ -170,43 +214,6 @@
   </tr>
 </table>
 
-<table>
-  <tr>
-    <td width="40%">
-      <a href="https://github.com/SungHyunC/multi-agent-bems"><img src="assets/projects/multi-agent-bems.webp" width="100%" alt="The Multi-Agent BEMS dashboard: energy KPIs, a power chart, and responses from the monitoring, analysis and report agents"></a>
-    </td>
-    <td>
-      <h3><a href="https://github.com/SungHyunC/multi-agent-bems">Multi-Agent BEMS</a></h3>
-      <p>Capstone project (Excellence Award): a LangGraph supervisor routes operator questions to monitoring, analysis and report agents over simulated building-energy data, with rule-based alerts and fallbacks.</p>
-      <p>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/langgraph-dark.svg"><img src="assets/chips/langgraph-light.svg" height="26" alt="LangGraph"></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/fastapi-dark.svg"><img src="assets/chips/fastapi-light.svg" height="26" alt="FastAPI"></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/nextjs-dark.svg"><img src="assets/chips/nextjs-light.svg" height="26" alt="Next.js"></picture>
-      </p>
-      <p><a href="https://github.com/SungHyunC/multi-agent-bems">Repository</a></p>
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td width="40%">
-      <a href="https://github.com/SungHyunC/BEMS-Anomaly-Operations-Center"><img src="assets/projects/bems-anomaly-operations-center.webp" width="100%" alt="The operations dashboard's building view, with one of three zones flagged critical"></a>
-    </td>
-    <td>
-      <h3><a href="https://github.com/SungHyunC/BEMS-Anomaly-Operations-Center">BEMS Anomaly Operations Center</a></h3>
-      <p>Building-energy sensor data recovery, rule-based diagnostics, and an operations dashboard.</p>
-      <p>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/fastapi-dark.svg"><img src="assets/chips/fastapi-light.svg" height="26" alt="FastAPI"></picture>
-        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/streamlit-dark.svg"><img src="assets/chips/streamlit-light.svg" height="26" alt="Streamlit"></picture>
-      </p>
-      <p><a href="https://github.com/SungHyunC/BEMS-Anomaly-Operations-Center">Repository</a> · <a href="https://youtu.be/Qljy0q05-nU">Video walkthrough</a></p>
-    </td>
-  </tr>
-</table>
-
 ## <img src="assets/icons/team.svg" width="24" height="24" align="absmiddle" alt=""> Team contributions
 
 - **[MOA — AI-powered civic reporting](https://github.com/nxtcloud-edu/2026-07-kosj-industry-practice-team04):** Contributed AI classification, the React admin console, and report grouping and prioritization in a university industry-practice team project. See the merged [classifier](https://github.com/nxtcloud-edu/2026-07-kosj-industry-practice-team04/pull/28) and [admin console](https://github.com/nxtcloud-edu/2026-07-kosj-industry-practice-team04/pull/29) pull requests. The linked deployment currently demonstrates the frontend; the backend runs locally.
@@ -227,6 +234,8 @@
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/scikit-learn-dark.svg"><img src="assets/chips/scikit-learn-light.svg" height="26" alt="scikit-learn"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jsbsim-dark.svg"><img src="assets/chips/jsbsim-light.svg" height="26" alt="JSBSim"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/mujoco-dark.svg"><img src="assets/chips/mujoco-light.svg" height="26" alt="MuJoCo"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/threejs-dark.svg"><img src="assets/chips/threejs-light.svg" height="26" alt="Three.js"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/ollama-dark.svg"><img src="assets/chips/ollama-light.svg" height="26" alt="Ollama"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/unreal-engine-dark.svg"><img src="assets/chips/unreal-engine-light.svg" height="26" alt="Unreal Engine 5"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/langgraph-dark.svg"><img src="assets/chips/langgraph-light.svg" height="26" alt="LangGraph"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/fastapi-dark.svg"><img src="assets/chips/fastapi-light.svg" height="26" alt="FastAPI"></picture>

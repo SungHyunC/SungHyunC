@@ -105,6 +105,9 @@ const BRAND = {
   meta: ['siMeta', '#0467df', '#4a97f7'],
   ray: ['siRay', '#028cf0', '#3aa5f5'],
   unrealengine: ['siUnrealengine', '#0e1128', '#ffffff'],
+  threedotjs: ['siThreedotjs', '#000000', '#ffffff'],
+  ollama: ['siOllama', '#000000', '#ffffff'],
+  huggingface: ['siHuggingface', '#e8a400', '#ffd21e'],
 };
 
 // Simple Icons has no LinkedIn mark, so this one is drawn here: a rounded square with "in" cut out.
@@ -187,6 +190,9 @@ const CHIPS = {
   'ray-rllib': ['Ray RLlib', 'ray'],
   jsbsim: ['JSBSim', 'lucide:plane'],
   'unreal-engine': ['Unreal Engine 5', 'unrealengine'],
+  threejs: ['Three.js', 'threedotjs'],
+  ollama: ['Ollama', 'ollama'],
+  qlora: ['QLoRA', 'huggingface'],
 };
 
 const BUTTONS = {
