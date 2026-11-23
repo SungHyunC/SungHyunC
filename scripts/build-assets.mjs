@@ -196,6 +196,7 @@ const CHIPS = {
 };
 
 const BUTTONS = {
+  portfolio: ['Portfolio', 'lucide:globe'],
   linkedin: ['LinkedIn', 'linkedin'],
   email: ['Email', 'lucide:mail'],
 };

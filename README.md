@@ -13,6 +13,8 @@
 </p>
 
 <p>
+  <a href="https://sunghyunc.github.io/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/portfolio-dark.svg"><img src="assets/buttons/portfolio-light.svg" height="34" alt="Portfolio"></picture></a>
+  &nbsp;
   <a href="https://www.linkedin.com/in/joshua-austin-kim"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/linkedin-dark.svg"><img src="assets/buttons/linkedin-light.svg" height="34" alt="LinkedIn"></picture></a>
   &nbsp;
   <a href="mailto:honeybeelawn@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/email-dark.svg"><img src="assets/buttons/email-light.svg" height="34" alt="Email"></picture></a>
