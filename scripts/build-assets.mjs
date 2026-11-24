@@ -108,6 +108,7 @@ const BRAND = {
   threedotjs: ['siThreedotjs', '#000000', '#ffffff'],
   ollama: ['siOllama', '#000000', '#ffffff'],
   huggingface: ['siHuggingface', '#e8a400', '#ffd21e'],
+  nvidia: ['siNvidia', '#76b900', '#76b900'],
 };
 
 // Simple Icons has no LinkedIn mark, so this one is drawn here: a rounded square with "in" cut out.
@@ -177,6 +178,7 @@ const CHIPS = {
   pytorch: ['PyTorch', 'pytorch'],
   'scikit-learn': ['scikit-learn', 'scikitlearn'],
   mujoco: ['MuJoCo', 'lucide:box'],
+  'isaac-gym': ['Isaac Gym', 'nvidia'],
   langgraph: ['LangGraph', 'langgraph'],
   fastapi: ['FastAPI', 'fastapi'],
   streamlit: ['Streamlit', 'streamlit'],

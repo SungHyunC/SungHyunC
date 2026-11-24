@@ -55,11 +55,20 @@
 
 <table>
   <tr>
-    <td width="50%" valign="top">
+    <td colspan="2" valign="top">
       <img src="assets/icons/trophy.svg" width="30" height="30" alt=""><br>
       <b>5th Place, Indie Developer Track ($25,000)</b><br>
-      <a href="https://cerebralvalley.ai/e/meta-ai-developer-hackathon/hackathon/gallery/2050">Meta Global AI Developer Hackathon</a>, November 2026; 5,367 projects were submitted.<br>
-      Project: <a href="https://github.com/SungHyunC/video2urdf">Video2URDF</a>, built solo.
+      <a href="https://cerebralvalley.ai/e/meta-ai-developer-hackathon/hackathon/gallery/2050">Meta Global AI Developer Hackathon</a>, November 2026. One of five finalists in the Indie Developer Track, among about 20,000 participants and 5,367 submitted projects.<br>
+      Project: <a href="https://github.com/SungHyunC/video2urdf">Video2URDF</a>, built solo.<br>
+      <sub>Participant count and finalists as announced at the finals broadcast.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="assets/icons/medal.svg" width="30" height="30" alt=""><br>
+      <b>Top Award</b><br>
+      KU AI Startup Idea Challenge, Korea University, August 2026.<br>
+      Team entry.
     </td>
     <td width="50%" valign="top">
       <img src="assets/icons/medal.svg" width="30" height="30" alt=""><br>
@@ -75,12 +84,13 @@
 <table>
   <tr>
     <td>
-      <b>Undergraduate Research Assistant</b>, Korea University · Sep 2025 – Present<br>
-      Multi-agent reinforcement learning for air combat
+      <b>Undergraduate Research Assistant</b>, <a href="https://ids-ku.github.io/">IDS Lab</a>, Korea University · Sep 2025 – Present<br>
+      Multi-agent reinforcement learning for air combat and pursuit-evasion
       <ul>
         <li>Reimplemented JSBSim F-16/A-4 flight dynamics and an air combat environment in JAX, cutting per-policy training from an estimated 190 CPU hours to ~20 GPU hours; verified statistical equivalence to JSBSim in 5 stages.</li>
         <li>Reproduced the main results of an IEEE ICA 2025 hierarchical MARL paper over 10 seeds (62 policies, 1.1M evaluation engagements), tracing remaining gaps to seed variance and undocumented ammo and altitude rules.</li>
         <li>Extended an F-16 simulator to 2v2 combat with 7 RL setups, 131 automated tests, and Unreal Engine 5 rendering.</li>
+        <li>Spring 2026 CURT research: trained pursuit-evasion MARL with PPO on a bounded grid. The capture rate rose from 33.7% to 99.9% as pursuers were added (5 seeds), and 57.9% of captures came at the border, which covers 39.5% of the grid.</li>
       </ul>
       <p>
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
@@ -88,6 +98,25 @@
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jsbsim-dark.svg"><img src="assets/chips/jsbsim-light.svg" height="26" alt="JSBSim"></picture>
         <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/unreal-engine-dark.svg"><img src="assets/chips/unreal-engine-light.svg" height="26" alt="Unreal Engine 5"></picture>
         <br><sub>The code is private (lab research).</sub>
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>
+      <b>Undergraduate Research Assistant</b>, Network Management Lab, Korea University · Dec 2024 – Aug 2025<br>
+      Vision-language models and reinforcement learning for robot arms, advised by Prof. Myung-Sup Kim
+      <ul>
+        <li>Reviewed vision-language and vision-language-action research (CLIP, PaliGemma 2, OpenVLA) and presented paper reviews at lab seminars.</li>
+        <li>Ran OpenVLA on LIBERO simulated robot-manipulation tasks and reviewed its successful and failed rollouts.</li>
+        <li>In the university's S-CURT research program (Apr – Jul 2025), set up Ubuntu, CUDA, and NVIDIA Isaac Gym, then trained RL policies for CartPole and Franka Panda cabinet-opening and cube-stacking tasks with a graduate mentor.</li>
+      </ul>
+      <p>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/python-dark.svg"><img src="assets/chips/python-light.svg" height="26" alt="Python"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/pytorch-dark.svg"><img src="assets/chips/pytorch-light.svg" height="26" alt="PyTorch"></picture>
+        <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/isaac-gym-dark.svg"><img src="assets/chips/isaac-gym-light.svg" height="26" alt="Isaac Gym"></picture>
       </p>
     </td>
   </tr>
@@ -218,6 +247,7 @@
 
 ## <img src="assets/icons/team.svg" width="24" height="24" align="absmiddle" alt=""> Team contributions
 
+- **[Traffic Signal Digital Twin](https://github.com/SungHyunC/team-b-signal-optimization), Team B lead:** In the Crimson Silicon Valley SW·AI Leaders Program (Korea University Sejong × CSU East Bay, Oct – Nov 2026), led the team that built a SUMO digital twin of a four-junction corridor with mobility data and AI, and presented it at CSU East Bay. The program's Silicon Valley week (Nov 1–8) included visits to Google, Amazon, Databricks, and Pensive. [Online demo](https://sunghyunc.github.io/team-b-signal-optimization/).
 - **[MOA — AI-powered civic reporting](https://github.com/nxtcloud-edu/2026-07-kosj-industry-practice-team04):** Contributed AI classification, the React admin console, and report grouping and prioritization in a university industry-practice team project. See the merged [classifier](https://github.com/nxtcloud-edu/2026-07-kosj-industry-practice-team04/pull/28) and [admin console](https://github.com/nxtcloud-edu/2026-07-kosj-industry-practice-team04/pull/29) pull requests. The linked deployment currently demonstrates the frontend; the backend runs locally.
 - **[BidderBidder iOS](https://github.com/FakeDevelopers/BidderBidder_IOS):** Contributed login/signup flows, [Firebase phone verification](https://github.com/FakeDevelopers/BidderBidder_IOS/pull/10), [search UI](https://github.com/FakeDevelopers/BidderBidder_IOS/pull/21), and [SwiftLint CI](https://github.com/FakeDevelopers/BidderBidder_IOS/pull/15) through merged pull requests for a used-goods auction app.
 
@@ -236,6 +266,7 @@
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/scikit-learn-dark.svg"><img src="assets/chips/scikit-learn-light.svg" height="26" alt="scikit-learn"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/jsbsim-dark.svg"><img src="assets/chips/jsbsim-light.svg" height="26" alt="JSBSim"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/mujoco-dark.svg"><img src="assets/chips/mujoco-light.svg" height="26" alt="MuJoCo"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/isaac-gym-dark.svg"><img src="assets/chips/isaac-gym-light.svg" height="26" alt="Isaac Gym"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/threejs-dark.svg"><img src="assets/chips/threejs-light.svg" height="26" alt="Three.js"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/ollama-dark.svg"><img src="assets/chips/ollama-light.svg" height="26" alt="Ollama"></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/chips/unreal-engine-dark.svg"><img src="assets/chips/unreal-engine-light.svg" height="26" alt="Unreal Engine 5"></picture>
