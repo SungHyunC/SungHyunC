@@ -9,7 +9,8 @@
 // the same whatever fonts the reader has installed.
 //
 // To add a technology: add a line to BRAND (if it has a logo in Simple Icons) and to CHIPS,
-// run the build, and reference assets/chips/<name>-light.svg and -dark.svg from README.md.
+// put its name in a row of GROUPS, and run the build. The build rewrites the rows between
+// README.md's tech-stack markers itself.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -67,6 +68,8 @@ const FONTS = {
 };
 
 const r2 = (n) => Math.round(n * 100) / 100;
+// Escapes text for an SVG attribute or element (labels such as "ML & RL").
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
 // Lays text out glyph by glyph and returns its outline. (opentype.js' own layout
 // stops on a GSUB lookup in Inter that it does not support.)
@@ -109,6 +112,23 @@ const BRAND = {
   ollama: ['siOllama', '#000000', '#ffffff'],
   huggingface: ['siHuggingface', '#e8a400', '#ffd21e'],
   nvidia: ['siNvidia', '#76b900', '#76b900'],
+  typescript: ['siTypescript', '#3178c6', '#4d8fd9'],
+  kotlin: ['siKotlin', '#7f52ff', '#9c7bff'],
+  ultralytics: ['siUltralytics', '#111f68', '#8c9bff'],
+  opencv: ['siOpencv', '#5c3ee8', '#8a76f2'],
+  blender: ['siBlender', '#e87d0d', '#e87d0d'],
+  unity: ['siUnity', '#000000', '#ffffff'],
+  gemini: ['siGooglegemini', '#8e75b2', '#a891d1'],
+  mcp: ['siModelcontextprotocol', '#000000', '#ffffff'],
+  nodejs: ['siNodedotjs', '#5fa04e', '#6cc24a'],
+  vite: ['siVite', '#9135ff', '#a65cff'],
+  leaflet: ['siLeaflet', '#199900', '#3cba29'],
+  android: ['siAndroid', '#2fb36d', '#3ddc84'],
+  githubactions: ['siGithubactions', '#2088ff', '#2088ff'],
+  github: ['siGithub', '#1f2328', '#f0f6fc'],
+  cloudflare: ['siCloudflare', '#f38020', '#f38020'],
+  docker: ['siDocker', '#2496ed', '#2496ed'],
+  ffmpeg: ['siFfmpeg', '#007808', '#2ea043'],
 };
 
 // Simple Icons has no LinkedIn mark, so this one is drawn here: a rounded square with "in" cut out.
@@ -150,18 +170,21 @@ const KINDS = {
   button: { h: 34, padL: 12, padR: 14, icon: 16, gap: 8, font: 600, size: 13.5, radius: 8, strokeWidth: 2 },
 };
 
-function chip({ label, icon, kind, theme }) {
+// `tint` ([light, dark]) colours a Lucide icon that stands in for a missing brand mark;
+// without it the icon is drawn in the muted text colour.
+function chip({ label, icon, kind, theme, tint }) {
   const k = KINDS[kind];
   const c = THEMES[theme];
   const textX = k.padL + k.icon + k.gap;
   const baseline = (k.h + capHeight(k.font, k.size)) / 2;
   const text = outline(label, { font: k.font, size: k.size, x: textX, y: baseline });
   const w = Math.ceil(textX + text.width + k.padR);
+  const stroke = tint ? tint[theme === 'light' ? 0 : 1] : c.muted;
   const mark = drawIcon(icon, {
-    x: k.padL, y: (k.h - k.icon) / 2, size: k.icon, theme, stroke: c.muted, strokeWidth: k.strokeWidth,
+    x: k.padL, y: (k.h - k.icon) / 2, size: k.icon, theme, stroke, strokeWidth: k.strokeWidth,
   });
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${k.h}" viewBox="0 0 ${w} ${k.h}" role="img" aria-label="${label}">
-<title>${label}</title>
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${k.h}" viewBox="0 0 ${w} ${k.h}" role="img" aria-label="${esc(label)}">
+<title>${esc(label)}</title>
 <rect x="0.5" y="0.5" width="${w - 1}" height="${k.h - 1}" rx="${k.radius}" fill="${c.chipFill}" fill-opacity="${c.chipFillOpacity}" stroke="${c.chipStroke}" stroke-opacity="${c.chipStrokeOpacity}"/>
 ${mark}
 <path fill="${c.fg}" d="${text.d}"/>
@@ -169,33 +192,95 @@ ${mark}
 `;
 }
 
-// file name: [label, icon]
+// file name: [label, icon, tint?]
+// Technologies with no mark in Simple Icons (C#, SQL, JAX, JSBSim, MuJoCo, SUMO, Kiro) get a
+// coloured Lucide icon, the same one and colour the portfolio site uses for them.
 const CHIPS = {
   python: ['Python', 'python'],
+  typescript: ['TypeScript', 'typescript'],
   javascript: ['JavaScript', 'javascript'],
+  kotlin: ['Kotlin', 'kotlin'],
   swift: ['Swift', 'swift'],
-  sql: ['SQL', 'lucide:database'],
+  csharp: ['C#', 'lucide:hash', ['#9b4f96', '#c27bbd']],
+  sql: ['SQL', 'lucide:database', ['#336791', '#6b9bd1']],
   pytorch: ['PyTorch', 'pytorch'],
+  jax: ['JAX', 'lucide:zap', ['#3b78e7', '#5e97f6']],
+  'ray-rllib': ['Ray RLlib', 'ray'],
   'scikit-learn': ['scikit-learn', 'scikitlearn'],
-  mujoco: ['MuJoCo', 'lucide:box'],
+  qlora: ['QLoRA', 'huggingface'],
+  yolo: ['YOLO', 'ultralytics'],
+  opencv: ['OpenCV', 'opencv'],
+  jsbsim: ['JSBSim', 'lucide:plane', ['#0284c7', '#0ea5e9']],
+  mujoco: ['MuJoCo', 'lucide:bot', ['#0d9488', '#14b8a6']],
   'isaac-gym': ['Isaac Gym', 'nvidia'],
+  sumo: ['SUMO', 'lucide:traffic-cone', ['#ea580c', '#f97316']],
+  blender: ['Blender', 'blender'],
+  'unreal-engine': ['Unreal Engine 5', 'unrealengine'],
+  unity: ['Unity', 'unity'],
   langgraph: ['LangGraph', 'langgraph'],
-  fastapi: ['FastAPI', 'fastapi'],
-  streamlit: ['Streamlit', 'streamlit'],
-  react: ['React', 'react'],
-  nextjs: ['Next.js', 'nextjs'],
-  git: ['Git', 'git'],
+  ollama: ['Ollama', 'ollama'],
+  gemini: ['Gemini', 'gemini'],
   'sam-3-1': ['SAM 3.1', 'meta'],
   'muse-spark': ['Muse Spark', 'meta'],
-  hdf5: ['HDF5', 'lucide:layers'],
-  jax: ['JAX', 'lucide:square-function'],
-  'ray-rllib': ['Ray RLlib', 'ray'],
-  jsbsim: ['JSBSim', 'lucide:plane'],
-  'unreal-engine': ['Unreal Engine 5', 'unrealengine'],
+  mcp: ['MCP', 'mcp'],
+  kiro: ['Kiro', 'lucide:ghost', ['#8b5cf6', '#a78bfa']],
+  react: ['React', 'react'],
+  nextjs: ['Next.js', 'nextjs'],
   threejs: ['Three.js', 'threedotjs'],
-  ollama: ['Ollama', 'ollama'],
-  qlora: ['QLoRA', 'huggingface'],
+  fastapi: ['FastAPI', 'fastapi'],
+  streamlit: ['Streamlit', 'streamlit'],
+  nodejs: ['Node.js', 'nodejs'],
+  vite: ['Vite', 'vite'],
+  leaflet: ['Leaflet', 'leaflet'],
+  android: ['Android', 'android'],
+  git: ['Git', 'git'],
+  'github-actions': ['GitHub Actions', 'githubactions'],
+  'github-pages': ['GitHub Pages', 'github'], // Simple Icons' Pages mark is a wordmark, unreadable at 14 px
+  cloudflare: ['Cloudflare', 'cloudflare'],
+  docker: ['Docker', 'docker'],
+  ffmpeg: ['FFmpeg', 'ffmpeg'],
 };
+
+// The rows of README.md's "Tech stack" section: [file name, label, chip names]. The same
+// groups and order as the Skills section of the portfolio site (src/data/profile.ts there).
+// Each row has to fit in 846 px, the README's width on github.com on a wide screen; the build
+// prints the row widths.
+const GROUPS = [
+  ['languages', 'Languages', ['python', 'typescript', 'javascript', 'kotlin', 'swift', 'csharp', 'sql']],
+  ['ml', 'ML & RL', ['pytorch', 'jax', 'ray-rllib', 'scikit-learn', 'qlora', 'yolo', 'opencv']],
+  ['simulation', 'Simulation & 3D', ['jsbsim', 'mujoco', 'sumo', 'isaac-gym', 'blender', 'unreal-engine', 'unity']],
+  ['ai', 'AI agents & LLMs', ['langgraph', 'ollama', 'gemini', 'sam-3-1', 'muse-spark', 'mcp', 'kiro']],
+  ['web', 'Web & apps', ['react', 'nextjs', 'threejs', 'fastapi', 'streamlit', 'nodejs', 'leaflet', 'android']],
+  ['tools', 'Tools', ['git', 'github-actions', 'github-pages', 'docker', 'vite', 'cloudflare', 'ffmpeg']],
+];
+
+// A row label: muted text in a box as wide as the longest label, so every row's chips
+// start at the same x. Same height as a chip, so the text lines up with the chip labels.
+const LABEL = { font: 600, size: 12, gapAfter: 12 };
+const labelWidth = Math.ceil(
+  Math.max(...GROUPS.map(([, text]) => outline(text, { font: LABEL.font, size: LABEL.size }).width)) + LABEL.gapAfter,
+);
+
+function rowLabel(text, theme) {
+  const h = KINDS.tag.h;
+  const baseline = (h + capHeight(LABEL.font, LABEL.size)) / 2;
+  const t = outline(text, { font: LABEL.font, size: LABEL.size, x: 0, y: baseline });
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${labelWidth}" height="${h}" viewBox="0 0 ${labelWidth} ${h}" role="img" aria-label="${esc(text)}">
+<title>${esc(text)}</title>
+<path fill="${THEMES[theme].muted}" d="${t.d}"/>
+</svg>
+`;
+}
+
+// The HTML README.md shows between its tech-stack markers: one paragraph per row.
+function techStackMarkup() {
+  const pic = (file, alt, h) =>
+    `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/${file}-dark.svg"><img src="assets/${file}-light.svg" height="${h}" alt="${alt}"></picture>`;
+  return GROUPS.map(([file, text, names]) => {
+    const parts = [pic(`labels/${file}`, `${text}:`, KINDS.tag.h), ...names.map((n) => pic(`chips/${n}`, CHIPS[n][0], KINDS.tag.h))];
+    return `<p>\n  ${parts.join('\n  ')}\n</p>`;
+  }).join('\n\n');
+}
 
 const BUTTONS = {
   portfolio: ['Portfolio', 'lucide:globe'],
@@ -386,14 +471,18 @@ function write(file, content) {
 }
 
 // Start from empty folders so a renamed or removed entry leaves no stale file behind.
-for (const dir of ['chips', 'buttons', 'icons']) fs.rmSync(path.join(OUT, dir), { recursive: true, force: true });
+for (const dir of ['chips', 'labels', 'buttons', 'icons']) fs.rmSync(path.join(OUT, dir), { recursive: true, force: true });
 
 let count = 0;
 for (const theme of ['light', 'dark']) {
   write(`banner-${theme}.svg`, banner(theme));
   count += 1;
-  for (const [name, [label, icon]] of Object.entries(CHIPS)) {
-    write(`chips/${name}-${theme}.svg`, chip({ label, icon, kind: 'tag', theme }));
+  for (const [name, [label, icon, tint]] of Object.entries(CHIPS)) {
+    write(`chips/${name}-${theme}.svg`, chip({ label, icon, kind: 'tag', theme, tint }));
+    count += 1;
+  }
+  for (const [file, text] of GROUPS) {
+    write(`labels/${file}-${theme}.svg`, rowLabel(text, theme));
     count += 1;
   }
   for (const [name, [label, icon]] of Object.entries(BUTTONS)) {
@@ -408,3 +497,21 @@ for (const [name, [icon, colors]] of Object.entries(LINE_ICONS)) {
 write('projects/f16-air-combat-agent.svg', engagementSchematic());
 count += 1;
 console.log(`Wrote ${count} files to ${path.relative(process.cwd(), OUT) || '.'}`);
+
+// Rewrite the tech-stack rows in README.md, between its two markers.
+const README = path.join(ROOT, 'README.md');
+const START = '<!-- tech-stack:start -->';
+const END = '<!-- tech-stack:end -->';
+const readme = fs.readFileSync(README, 'utf8');
+const a = readme.indexOf(START);
+const b = readme.indexOf(END);
+if (a === -1 || b < a) throw new Error(`README.md needs ${START} and ${END} around the tech-stack rows`);
+fs.writeFileSync(README, `${readme.slice(0, a + START.length)}\n${techStackMarkup()}\n${readme.slice(b)}`);
+
+// Row widths, to check them against the README's width on github.com (846 px on a wide screen).
+const SPACE = 3.8;
+const width = (file) => Number(fs.readFileSync(path.join(OUT, `${file}-light.svg`), 'utf8').match(/width="(\d+)"/)[1]);
+for (const [file, text, names] of GROUPS) {
+  const w = width(`labels/${file}`) + names.reduce((s, n) => s + SPACE + width(`chips/${n}`), 0);
+  console.log(`${text.padEnd(18)} ${Math.round(w)} px`);
+}
