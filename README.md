@@ -25,13 +25,13 @@
 ### Highlights
 
 - **5th Place ($25,000), [Meta Global AI Developer Hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon/hackathon/gallery/2050)**: a finalist in the Indie Developer Track among about 20,000 participants, with Video2URDF, built solo.
-- **Top Award, KU AI Startup Idea Challenge 2026**: team lead for ROADMINE, a pipeline that turns dashcam video into de-identified, signed edge-case driving data.
+- **Top Award, KU AI Startup Idea Challenge 2026**: team lead for ROADMINE, which turns dashcam video into anonymized, signed data on rare driving events.
 - **Undergraduate researcher, [IDS Lab](https://ids-ku.github.io/), Korea University**: multi-agent reinforcement learning for air combat.
 
 ### Featured projects
 
 - **[Video2URDF](https://github.com/SungHyunC/video2urdf)**: one phone video of an articulated object in, a measured URDF/MJCF robot model out, checked by replaying it in MuJoCo over the video. [Live demo](https://sunghyunc.github.io/video2urdf/)
-- **Air-combat AI**: a PPO F-16 dogfighting agent whose arbitration layer raised its head-on score from 0.39 to 0.88, and a JAX port of JSBSim that trains 7–10× faster for reproducing an IEEE ICA 2025 multi-agent RL paper. <sub>Code is private (competition and lab work).</sub>
+- **Air-combat AI**: a PPO F-16 dogfighting agent whose arbitration layer raised its head-on score from 0.39 to 0.88, and a JAX port of JSBSim that trains 7–10× faster for reproducing an IEEE ICA 2025 multi-agent RL paper.
 - **[MA-BEMS](https://github.com/SungHyunC/ma-bems-project)**: six agents run a simulated campus beside a rule-based BMS and cut energy cost by 16.7% in simulation. [Live dashboard](https://sunghyunc.github.io/ma-bems/)
 
 <p>
